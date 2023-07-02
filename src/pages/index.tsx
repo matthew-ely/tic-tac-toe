@@ -3,9 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { api } from "@/utils/api";
 import GameBoard from "@/components/UI/GameBoard";
+import WinModal from "@/components/modal/Modal";
+import { useState } from "react";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const [modalShowing, setModalShowing] = useState(false)
 
   return (
     <>
@@ -16,7 +19,8 @@ export default function Home() {
       </Head>
       <main className="flex justify-center h-full items-center">
         <div className="py-16">
-          <GameBoard/>
+          <GameBoard toggleModal={setModalShowing}/>
+          <WinModal isShowing={modalShowing} toggleModal={setModalShowing}/>
         </div>
       </main>
     </>

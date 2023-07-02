@@ -8,7 +8,7 @@ interface BoardTileProps {
 }
 
 const BoardTile = ({updateGameTiles, index, selected}: BoardTileProps) => {
-    var [tileColor, setTileColor] = useState(!selected ? "#F9F9F9" : "#E7E4B0") // white or cream
+    const [tileColor, setTileColor] = useState(!selected ? "#F9F9F9" : "#E7E4B0") // white or cream
 
     function handleClick() {
         if (tileColor == "#F9F9F9") { // white
